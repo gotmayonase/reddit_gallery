@@ -1,0 +1,13 @@
+<% @subreddits.each do |subreddit| %>
+<section>
+  <h1>/r/<%= subreddit.name %></h1>
+  <div class="grid clearfix">
+    <% subreddit.backgrounds.where('image_file_size is not null').order("score desc").limit(8).each do |background| %>
+    <% next unless background.image.exists? %>
+    <div class="thumb">
+      <%= image_tag background.image.url(:medium) %>
+    </div>
+    <% end %>
+  </div>
+</section>
+<% end %>

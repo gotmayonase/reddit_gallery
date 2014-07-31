@@ -1,0 +1,60 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ .grid .thumb {
+   width: 25%;
+   margin: 0;
+   float: left;
+   height: 200px;
+ }
+
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+  line-height: 0;
+  font-size: 0;
+}
+
+.thumb a {
+  float: left;
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  line-height: 0;
+  text-decoration: none;
+  filter: inherit;
+}
+
+.thumb {
+  position: relative;
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 30px;
+}
+
+.thumb img {
+  display: block;
+  position: relative;
+  filter: inherit;
+  margin: 0;
+  width: 100%;
+}
+
+.grid {
+  width: 100%;
+}
