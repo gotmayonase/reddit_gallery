@@ -12,6 +12,7 @@ gem 'spring',        group: :development
 gem 'pg'
 gem 'httparty'
 gem 'paperclip'
+gem 'mysql'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

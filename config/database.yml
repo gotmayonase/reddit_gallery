@@ -1,6 +1,5 @@
 development:
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql
   database: reddit_gallery_development
   pool: 5
 

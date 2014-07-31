@@ -1,13 +1,18 @@
-<% @subreddits.each do |subreddit| %>
-<section>
-  <h1>/r/<%= subreddit.name %></h1>
-  <div class="grid clearfix">
-    <% subreddit.backgrounds.where('image_file_size is not null').order("score desc").limit(8).each do |background| %>
-    <% next unless background.image.exists? %>
-    <div class="thumb">
-      <%= image_tag background.image.url(:medium) %>
+<div class="inner-content">
+  <div class="portfolio-page">
+  	<div class="portfolio-box">
+      <% @backgrounds.each do |background|  %>
+        <div class="project-post <%= background.subreddit.name %>" data-width="<%= background.width %>" data-height="<%= background.height %>">
+					<img alt="" src="<%= background.image.url(:medium) %>" />
+					<div class="hover-box">
+						<div class="project-title">
+							<h2>/r/<%= background.subreddit.name %></h2>
+              <span><%= background.width %>x<%=background.height %></span>
+							<div><a href="single-project.html"><i class="fa fa-arrow-right"></i></a></div>
+						</div>
+					</div>
+				</div>
+      <% end %>
     </div>
-    <% end %>
   </div>
-</section>
-<% end %>
+</div>

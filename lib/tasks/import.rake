@@ -1,5 +1,5 @@
 task :import => :environment do
-  Subreddit.all.each do |subreddit|
+  Subreddit.all.order('name asc').each do |subreddit|
     SubredditImporter.import(subreddit)
   end
 end

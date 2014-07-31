@@ -10,51 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+  *= require bootstrap.css
+  *= require magnific-popup.css
+  *= require font-awesome.css
+  *= require flexslider.css
+  *= require style.css
+  *= require responsive.css
  *= require_self
  */
- .grid .thumb {
-   width: 25%;
-   margin: 0;
-   float: left;
-   height: 200px;
- }
-
-.clearfix:after {
-  content: ".";
-  display: block;
-  height: 0;
-  clear: both;
-  visibility: hidden;
-  line-height: 0;
-  font-size: 0;
-}
-
-.thumb a {
-  float: left;
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  line-height: 0;
-  text-decoration: none;
-  filter: inherit;
-}
-
-.thumb {
-  position: relative;
-  overflow: hidden;
-  line-height: 0;
-  margin-bottom: 30px;
-}
-
-.thumb img {
-  display: block;
-  position: relative;
-  filter: inherit;
-  margin: 0;
-  width: 100%;
-}
-
-.grid {
-  width: 100%;
-}
