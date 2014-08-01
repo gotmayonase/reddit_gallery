@@ -15,9 +15,12 @@ $(document).ready(function($) {
 	// Needed variables
 	var $container=$('.portfolio-box, .blog-box');
 	var $filter=$('.filter');
-	var $widthFilter=$('.width-filter');
+	var $widthFilter = $('.width-filter');
+	var $heightFilter = $('.height-filter');
+	var $widescreenFilter = $('.widescreenFilter');
 	var minimumWidth = 0;
-	var filterClass = null;
+	var minimumHeight = 0;
+	var widescreenFilter = false;
 
 	try{
 		$container.imagesLoaded( function(){
@@ -30,6 +33,8 @@ $(document).ready(function($) {
 					easing:'linear'
 				}
 			});
+
+			$container.isotope('on','layoutComplete',resizeHeaderToBody);
 		});
 	} catch(err) {
 	}
@@ -38,11 +43,9 @@ $(document).ready(function($) {
 		$container.isotope({
 			filter	: function(){
 				var width = parseInt($(this).attr('data-width'));
-				if (filterClass) {
-					return $(this).hasClass(filterClass) && width >= minimumWidth;
-				} else {
-					return width >= minWidth;
-				}
+				var height = parseInt($(this).attr('data-height'));
+				var ratio = parseFloat($(this).attr('data-ratio'));
+				return width >= minimumWidth && height >= minimumHeight && (!widescreenFilter || (widescreenFilter && ratio > 1.7));
 			},
 			animationOptions: {
 				duration: 750,
@@ -52,18 +55,26 @@ $(document).ready(function($) {
 		});
 	}
 
-	winDow.bind('resize', function(){
-		try {
-			filterImages();
-		} catch(err) {
-		}
-		return false;
-	});
-
 	// Isotope Filter
 	$filter.find('a').click(function(){
 		filterClass = $(this).attr('data-filter');
 
+		try {
+			filterImages();
+		} catch(err) {
+			console.log(err)
+		}
+		return false;
+	});
+
+	$widescreenFilter.click(function() {
+		widescreenFilter = !widescreenFilter;
+		var $this = $(this);
+		if ( !$this.hasClass('active')) {
+			$this.addClass('active');
+		} else {
+			$this.removeClass('active');
+		}
 		try {
 			filterImages();
 		} catch(err) {
@@ -83,9 +94,21 @@ $(document).ready(function($) {
 		return false;
 	});
 
+	$heightFilter.find('a').click(function(){
+		minimumHeight = parseInt($(this).attr('data-height'));
+
+		try {
+			filterImages()
+		} catch(err) {
+			console.log(err)
+		}
+		return false;
+	});
+
 
 	var filterItemA	= $('.filter li a');
 	var widthFilterItemA = $('.width-filter li a');
+	var heightFilterItemA = $('.height-filter li a');
 
 	filterItemA.on('click', function(){
 		var $this = $(this);
@@ -102,6 +125,20 @@ $(document).ready(function($) {
 			$this.addClass('active');
 		}
 	});
+
+	heightFilterItemA.on('click', function(){
+		var $this = $(this);
+		if ( !$this.hasClass('active')) {
+			heightFilterItemA.removeClass('active');
+			$this.addClass('active');
+		}
+	});
+
+	$('.backgroundPopup').magnificPopup({
+		type: 'image',
+		mainClass: 'mfp-fade'
+	});
+
 
 	/*-------------------------------------------------*/
 	/* =  preloader function
@@ -134,33 +171,26 @@ $(document).ready(function($) {
 
 	}
 
+
+
 	/*-------------------------------------------------*/
 	/* =  header height fix
 	/*-------------------------------------------------*/
 	var content = $('#content');
-	content.imagesLoaded( function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
+	content.imagesLoaded(resizeHeaderToBody);
 
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);
-		}
-	});
-
-	winDow.bind('resize', function(){
-		var bodyHeight = $(window).outerHeight(),
-		containerHeight = $('.inner-content').outerHeight(),
-		headerHeight = $('header');
-
-		if( bodyHeight > containerHeight ) {
-			headerHeight.css('height',bodyHeight);
-		} else {
-			headerHeight.css('height',containerHeight);
-		}
-	});
+	winDow.bind('resize', resizeHeaderToBody);
+	function resizeHeaderToBody() {
+		// var bodyHeight = $(window).outerHeight(),
+		// containerHeight = $('.inner-content').outerHeight(),
+		// headerHeight = $('header');
+		//
+		// if( bodyHeight > containerHeight ) {
+		// 	headerHeight.css('height',bodyHeight);
+		// } else {
+		// 	headerHeight.css('height',containerHeight);
+		// }
+	};
 
 	/* ---------------------------------------------------------------------- */
 	/*	nice scroll

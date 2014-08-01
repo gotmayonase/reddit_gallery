@@ -13,6 +13,7 @@ gem 'pg'
 gem 'httparty'
 gem 'paperclip'
 gem 'mysql'
+gem 'ezcrypto'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

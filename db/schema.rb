@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731054213) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140801215610) do
 
   create_table "backgrounds", force: true do |t|
     t.string   "reddit_id"
@@ -24,7 +21,7 @@ ActiveRecord::Schema.define(version: 20140731054213) do
     t.integer  "width"
     t.integer  "height"
     t.integer  "num_comments"
-    t.string   "url"
+    t.text     "url"
     t.datetime "original_created_at"
     t.string   "author"
     t.integer  "subreddit_id"

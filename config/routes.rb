@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
-  root 'home#index'
+  root 'subreddits#index'
+
+  resources :r, controller: 'subreddits', only: [:show] do
+    get 'download', on: :member
+  end
+
+  resources :background, only: [:show] do
+    get 'download', on: :member
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

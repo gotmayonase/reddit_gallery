@@ -20,8 +20,8 @@ class SubredditImporter
     begin
       response = self.class.get("/r/#{subreddit.name}/top.json", { query: { t: 'all', limit: '100' } })
     rescue => e
-      retries += 1
-      if retries >= 3
+      self.retries += 1
+      if self.retries >= 3
         raise e
       else
         import
@@ -33,16 +33,16 @@ class SubredditImporter
     links.each do |link|
       data = link["data"]
       title = data["title"]
-      next unless title =~ /(\d{3,5})\s?x\s?(\d{3,5})/
-      unless Background.find_by(reddit_id: data["id"])
-        image = open(data["url"]) rescue next
-        next if image.content_type == 'image/gif'
+      regex = /[\[\(](\d{3,5})\s?x\s?(\d{3,5})[\]\)]/
+      next unless title =~ regex
+      title.gsub!(regex,'')
+      unless Background.unscoped.find_by(reddit_id: data["id"])
         b = Background.new(
           subreddit_id: subreddit.id,
           reddit_id: data["id"],
           score: data["score"],
           permalink: data["permalink"],
-          title: data["title"],
+          title: title,
           width: $1,
           height: $2,
           num_comments: data["num_comments"],
@@ -50,20 +50,53 @@ class SubredditImporter
           original_created_at: Time.at(data["created_utc"]),
           author: data["author"]
         )
-        if image.content_type =~ /image/
-          b.image = image
-          b.save
-          print 'i'
-        else
+        begin
+          b.image = URI.parse(data["url"])
+          if b.image.content_type == 'image/gif'
+            b.image = nil
+            b.invalid_image = true
+            b.save
+            pink_print 'g'
+          else
+            if b.save
+              green_print 'i'
+            else
+              b.image = nil
+              b.invalid_image = true
+              b.save
+              yellow_print 'v'
+            end
+          end
+        rescue => e
           b.invalid_image = true
           b.save
-          print 'v'
+          red_print 'e'
         end
       else
         print '.'
       end
     end
     puts
+  end
+
+  def red_print(string)
+    print colorize(string, 31)
+  end
+
+  def green_print(string)
+    print colorize(string, 32)
+  end
+
+  def yellow_print(string)
+    print colorize(string, 33)
+  end
+
+  def pink_print(string)
+    print colorize(string, 35)
+  end
+
+  def colorize(string, code)
+    "\e[#{code}m#{string}\e[0m"
   end
 
 end

@@ -14,6 +14,7 @@
 
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= yield :scripts %>
   <%= csrf_meta_tags %>
 </head>
 <body>
@@ -22,32 +23,11 @@
 	<div id="container">
 		<!-- Header
 		    ================================================== -->
+		<% if content_for? :sidebar %>
 		<header>
-			<div class="logo-box">
-				<a class="logo" href="index.html"><h1>Pr0nPapers</h1></a>
-			</div>
-
-      <div class="filter-box">
-        <h3>Minimum Width<i class="fa fa-th-large"></i></h3>
-        <ul class="width-filter">
-          <li><a href="#" class="active" data-width="0">any</a></li>
-          <% [1200,1440,1600,1920,2500].each do |width| %>
-          <li><a href="#" data-width="<%= width %>"><%= width %>px</a></li>
-          <% end %>
-        </ul>
-      </div>
-
-			<div class="filter-box">
-				<h3>Filter<i class="fa fa-th-large"></i></h3>
-				<ul class="filter">
-					<li><a href="#" class="active" data-filter="*">all subreddits</a></li>
-          <% @subreddits.each do |subreddit| %>
-					<li><a href="#" data-filter="<%= subreddit.name %>">/r/<%= subreddit.name %></a></li>
-          <% end %>
-				</ul>
-			</div>
-
+			<%= yield :sidebar %>
 		</header>
+		<% end %>
 		<!-- End Header -->
 
 		<!-- content
@@ -59,17 +39,6 @@
 
 	</div>
 	<!-- End Container -->
-
-	<div class="info-box">
-		<a class="info-toggle" href="#"><i class="fa fa-download"></i></a>
-		<div class="info-content">
-			<ul>
-				<li><i class="fa fa-phone"></i>9930 1234 5679</li>
-				<li><i class="fa fa-envelope"></i><a href="#">contact@domain.com</a></li>
-				<li><i class="fa fa-home"></i>street address example</li>
-			</ul>
-		</div>
-	</div>
 
 	<div class="preloader">
 		<img alt="" src="<%= image_path 'preloader.gif' %>">
