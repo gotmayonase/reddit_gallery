@@ -136,7 +136,8 @@ $(document).ready(function($) {
 
 	$('.backgroundPopup').magnificPopup({
 		type: 'image',
-		mainClass: 'mfp-fade'
+		mainClass: 'mfp-fade',
+		overflowY: 'hidden'
 	});
 
 
