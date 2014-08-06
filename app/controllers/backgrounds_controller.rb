@@ -4,8 +4,9 @@ class BackgroundsController < ApplicationController
   end
 
   def download
-    @background = Background.find(params[:id])
-    send_file @background.image.path
+    @backgrounds = Background.where(id: params[:background][:ids].split(','))
+    filename = Zipper.zip_with_backgrounds(@backgrounds)
+    send_file filename
   end
 
 end

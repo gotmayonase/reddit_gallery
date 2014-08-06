@@ -52,9 +52,30 @@
 }
 
 header .info-box {
-  position: fixed;
-  top: 40%;
-  left: 75px;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  width: 100px;
+  height: auto;
+}
+
+header .info-box a.info-toggle {
+  width: 100px;
+  height: 120px;
+}
+
+header .info-box a.info-toggle i {
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  font-size: 24px;
+}
+
+header .info-box a.info-toggle span {
+  font-size: 14px;
+  font-weight: normal;
+  margin-top: 5px;
+  display: block;
 }
 
 /* overlay at start */

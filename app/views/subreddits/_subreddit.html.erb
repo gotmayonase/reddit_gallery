@@ -1,17 +1,17 @@
 <% background = subreddit.backgrounds.first %>
 <% if background %>
 <div class="project-post <%= subreddit.name %>">
-  <img alt="" src="<%= background.image.url(:medium) %>" />
+  <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" width="300" jeight="300" />
   <div class="subredditOverlay">
     <h2 class="">/r/<%= subreddit.name %></h2>
   </div>
   <div class="hover-box">
     <div class="project-title">
       <h2 class=""><a target="_blank" href="http://reddit.com/r/<%= subreddit.name %>">/r/<%= subreddit.name %></a></h2>
-      <span><%= subreddit.backgrounds.count%> images</span>
+      <span><%= subreddit.backgrounds.length %> images</span>
       <div class="links">
         <a href="<%= r_path(subreddit) %>"><i class="fa fa-search"></i></a>
-        <a href="single-project.html"><i class="fa fa-download"></i></a>
+        <a href="<%= r_path(subreddit, :zip) %>"><i class="fa fa-download"></i></a>
       </div>
     </div>
   </div>

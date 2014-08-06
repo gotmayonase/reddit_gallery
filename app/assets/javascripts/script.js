@@ -14,6 +14,7 @@ $(document).ready(function($) {
 	var winDow = $(window);
 	// Needed variables
 	var $container=$('.portfolio-box, .blog-box');
+	var $lazyImgs = $('img.lazy');
 	var $filter=$('.filter');
 	var $widthFilter = $('.width-filter');
 	var $heightFilter = $('.height-filter');
@@ -23,7 +24,12 @@ $(document).ready(function($) {
 	var widescreenFilter = false;
 
 	try{
-		$container.imagesLoaded( function(){
+		$lazyImgs.lazyload({
+			failure_limit: Math.max($lazyImgs.length - 1, 0),
+			threshold: 200,
+			skip_invisible: false
+		});
+		// $container.imagesLoaded( function(){
 			$container.show();
 			$container.isotope({
 				filter:'*',
@@ -34,18 +40,24 @@ $(document).ready(function($) {
 				}
 			});
 
-			$container.isotope('on','layoutComplete',resizeHeaderToBody);
-		});
+			$container.isotope('on', 'layoutComplete', function($items, instance){
+				console.log($items.length);
+				winDow.trigger('scroll');
+				$container.trigger('scroll');
+			})
+		// });
 	} catch(err) {
 	}
+
+
 
 	var filterImages = function() {
 		$container.isotope({
 			filter	: function(){
 				var width = parseInt($(this).attr('data-width'));
 				var height = parseInt($(this).attr('data-height'));
-				var ratio = parseFloat($(this).attr('data-ratio'));
-				return width >= minimumWidth && height >= minimumHeight && (!widescreenFilter || (widescreenFilter && ratio > 1.7));
+				var ratio = width / height;
+				return width >= minimumWidth && height >= minimumHeight && (!widescreenFilter || (widescreenFilter && ratio > (16.0 / 10)));
 			},
 			animationOptions: {
 				duration: 750,
@@ -171,27 +183,6 @@ $(document).ready(function($) {
 	} catch(err) {
 
 	}
-
-
-
-	/*-------------------------------------------------*/
-	/* =  header height fix
-	/*-------------------------------------------------*/
-	var content = $('#content');
-	content.imagesLoaded(resizeHeaderToBody);
-
-	winDow.bind('resize', resizeHeaderToBody);
-	function resizeHeaderToBody() {
-		// var bodyHeight = $(window).outerHeight(),
-		// containerHeight = $('.inner-content').outerHeight(),
-		// headerHeight = $('header');
-		//
-		// if( bodyHeight > containerHeight ) {
-		// 	headerHeight.css('height',bodyHeight);
-		// } else {
-		// 	headerHeight.css('height',containerHeight);
-		// }
-	};
 
 	/* ---------------------------------------------------------------------- */
 	/*	nice scroll

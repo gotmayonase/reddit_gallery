@@ -18,4 +18,5 @@
 //= require isotope.pkgd.js
 //= require retina-1.1.0.min.js
 //= require jquery.nicescroll.min.js
+//= require jquery.lazyload.js
 //= require script.js

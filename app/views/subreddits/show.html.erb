@@ -1,3 +1,4 @@
+<% title "Pr0nPapers - /r/#{@subreddit.name}" %>
 <% content_for :sidebar do %>
   <h1><a href="/"><i class="fa fa-chevron-left"></i></a></h1>
   <div class="filter-box">
@@ -23,6 +24,17 @@
     </ul>
   </div>
 
+
+  <div class="info-box">
+		<a class="info-toggle" href="#" id="downloadBackgrounds">
+      <i class="fa fa-download"></i>
+      <span><%= @subreddit.backgrounds.length %> images</span>
+      <form id="customDownload" action="<%= download_backgrounds_path %>" method="post">
+        <input type="hidden" name="_method" value="get" />
+        <input type="hidden" name="background[ids]" id="background_ids" value="<%= @subreddit.backgrounds.map(&:id).join(',') %>"/>
+      </form>
+    </a>
+	</div>
 <% end %>
 
 <style>
@@ -81,9 +93,18 @@
     $(function(){
       $('.portfolio-box').imagesLoaded( function(){
         $('.portfolio-box').isotope('on', 'layoutComplete', function(instance, items) {
-          $('.info-box span').html('Download ' + items.length + ' images');
+          $('.info-box span').html(items.length + ' images');
+          var ids = $.map(items, function(item){
+            return $(item.element).data('id');
+          });
+          $('#background_ids').val(ids.join(','));
         })
       });
+
+      $('#downloadBackgrounds').click(function(){
+        $('#customDownload').submit();
+        return false;
+      })
     })
   </script>
 <% end %>
@@ -91,9 +112,7 @@
 <div class="inner-content">
   <div class="portfolio-page">
     <div class="portfolio-box">
-      <% @subreddit.backgrounds.each do |background| %>
-        <%= render background %>
-      <% end %>
+      <%= render @subreddit.backgrounds %>
     </div>
   </div>
 </div>

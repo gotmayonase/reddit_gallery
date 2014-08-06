@@ -13,7 +13,8 @@ gem 'pg'
 gem 'httparty'
 gem 'paperclip'
 gem 'mysql'
-gem 'ezcrypto'
+gem 'rubyzip', require: 'zip'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

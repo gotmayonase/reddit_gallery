@@ -1,10 +1,11 @@
-<div class="project-post <%= background.subreddit.name %>" data-width="<%= background.width %>" data-height="<%= background.height %>" data-ratio="<%= background.width.to_f / background.height %> "style="<%=  'bottom: 0;' if request.path =~ /rest/ %>">
-  <img alt="" src="<%= background.image.url(:medium) %>" />
+<div class="project-post <%= background.subreddit.name %>" data-width="<%= background.width %>" data-height="<%= background.height %>" data-id="<%= background.id %>">
+  <img alt="" class="lazy" data-original="<%= background.image.url(:medium) %>" />
   <div class="hover-box">
     <div class="project-title">
       <h2><a target="_blank" href="http://www.reddit.com<%= background.permalink %>"><%= background.title.truncate(50) %></a></h2>
       <span><%= background.width %>x<%=background.height %></span>
       <span><%= number_to_human_size(background.image_file_size) %></span>
+      <span><i class="glyphicon glyphicon-arrow-up"></i><%= background.score %></span>
       <div class="links">
         <a href="<%= background.image.url %>" class="backgroundPopup" title="<%= background.title %>"><i class="fa fa-search"></i></a>
         <a href="<%= background.image.url %>" download="<%= background.reddit_id %>.<%= background.file_extension %>"><i class="fa fa-download"></i></a>
