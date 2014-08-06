@@ -1,17 +1,18 @@
 <% background = subreddit.backgrounds.first %>
 <% if background %>
 <div class="project-post <%= subreddit.name %>">
-  <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" width="300" jeight="300" />
+  <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" width="200" />
   <div class="subredditOverlay">
-    <h2 class="">/r/<%= subreddit.name %></h2>
+    <h2 class=""><%= subreddit.to_param.titleize %></h2>
   </div>
   <div class="hover-box">
     <div class="project-title">
-      <h2 class=""><a target="_blank" href="http://reddit.com/r/<%= subreddit.name %>">/r/<%= subreddit.name %></a></h2>
+      <h2 class=""><a href="<%= r_path(subreddit) %>" title="View all images for /r/<%= subreddit.name %>"><%= subreddit.to_param.titleize %></a></h2>
       <span><%= subreddit.backgrounds.length %> images</span>
       <div class="links">
-        <a href="<%= r_path(subreddit) %>"><i class="fa fa-search"></i></a>
-        <a href="<%= r_path(subreddit, :zip) %>"><i class="fa fa-download"></i></a>
+        <a href="<%= r_path(subreddit) %>" title="View all images for /r/<%= subreddit.name %>"><i class="fa fa-search"></i></a>
+        <a href="<%= r_path(subreddit, :zip) %>" title="Download all images for /r/<%= subreddit.name %>"><i class="fa fa-download"></i></a>
+        <a target="_blank" href="http://www.reddit.com/r/<%= subreddit.name %>" title="Visit /r/<%= subreddit.name %> on reddit"><i class="fa fa-reddit"></i></a>
       </div>
     </div>
   </div>

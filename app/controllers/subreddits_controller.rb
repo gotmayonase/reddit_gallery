@@ -5,7 +5,7 @@ class SubredditsController < ApplicationController
   end
 
   def show
-    @subreddit = Subreddit.find_by(name: params[:id])
+    @subreddit = Subreddit.find_by(name: "#{params[:id]}porn" )
 
     respond_to do |format|
       format.html

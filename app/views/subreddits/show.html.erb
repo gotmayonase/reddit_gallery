@@ -1,32 +1,38 @@
 <% title "Pr0nPapers - /r/#{@subreddit.name}" %>
 <% content_for :sidebar do %>
-  <h1><a href="/"><i class="fa fa-chevron-left"></i></a></h1>
-  <div class="filter-box">
-    <a href="#" class="widescreenFilter" title="Widescreen Only"><span>16:9</span><%= image_tag 'widescreen.png' %></a>
-  </div>
-  <div class="filter-box">
-    <h3><i class="fa fa-arrows-h"></i></h3>
-    <ul class="width-filter">
-      <li><a href="#" class="active" data-width="0">any</a></li>
-      <% [1200,1440,1600,1920,2500].each do |width| %>
-      <li><a href="#" data-width="<%= width %>"><%= width %>px</a></li>
-      <% end %>
-    </ul>
+  <div class="logo-box">
+    <h1>
+    <a href="/"><i class="fa fa-chevron-left"></i></a>
+    </h1>
   </div>
 
-  <div class="filter-box">
-    <h3><i class="fa fa-arrows-v"></i></h3>
-    <ul class="height-filter">
-      <li><a href="#" class="active" data-height="0">any</a></li>
-      <% [1200,1440,1600,1920,2500].each do |height| %>
-      <li><a href="#" data-height="<%= height %>"><%= height %>px</a></li>
-      <% end %>
-    </ul>
+  <a class="elemadded responsive-link" href="#">Filter</a>
+  <div class="menu-box">
+    <div class="filter-box">
+      <a href="#" class="widescreenFilter" title="Widescreen Only"><span>16:9</span><%= image_tag 'widescreen.png' %></a>
+    </div>
+    <div class="filter-box">
+      <h3><i class="fa fa-arrows-h"></i></h3>
+      <ul class="width-filter">
+        <li><a href="#" class="active" data-width="0">any</a></li>
+        <% [1200,1440,1600,1920,2500].each do |width| %>
+        <li><a href="#" data-width="<%= width %>"><%= width %>px</a></li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div class="filter-box">
+      <h3><i class="fa fa-arrows-v"></i></h3>
+      <ul class="height-filter">
+        <li><a href="#" class="active" data-height="0">any</a></li>
+        <% [1200,1440,1600,1920,2500].each do |height| %>
+        <li><a href="#" data-height="<%= height %>"><%= height %>px</a></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
-
-
   <div class="info-box">
-		<a class="info-toggle" href="#" id="downloadBackgrounds">
+    <a class="info-toggle" href="#" id="downloadBackgrounds">
       <i class="fa fa-download"></i>
       <span><%= @subreddit.backgrounds.length %> images</span>
       <form id="customDownload" action="<%= download_backgrounds_path %>" method="post">
@@ -34,59 +40,8 @@
         <input type="hidden" name="background[ids]" id="background_ids" value="<%= @subreddit.backgrounds.map(&:id).join(',') %>"/>
       </form>
     </a>
-	</div>
+  </div>
 <% end %>
-
-<style>
-  #content {
-    padding-left: 100px;
-  }
-
-  header {
-    width: 100px;
-    position: fixed;
-    height: 100%;
-  }
-
-  .widescreenFilter {
-    position: relative;
-  }
-
-  .widescreenFilter span{
-    color: #cee3f8;
-    position: absolute;
-    font-size: 12px;
-    top: 1px;
-    left: 3px;
-    opacity: 0.8;
-  }
-
-  .widescreenFilter img {
-    -webkit-filter: invert(100%);
-    filter: invert(100%);
-  }
-
-  .widescreenFilter:hover, .widescreenFilter.active {
-    background: rgba(255, 87, 0, 0.9);
-  }
-
-  header h2, header h1 {
-    text-align: center;
-    color: #cee3f8;
-  }
-
-  .filter-box h3{
-    text-align: center;
-  }
-
-  div.filter-box h3 i {
-    margin-left: 0;
-  }
-
-  .filter-box {
-    text-align: center;
-  }
-</style>
 
 <% content_for :scripts do %>
   <script>
@@ -109,10 +64,12 @@
   </script>
 <% end %>
 
-<div class="inner-content">
-  <div class="portfolio-page">
-    <div class="portfolio-box">
-      <%= render @subreddit.backgrounds %>
+<div id="content" class="backgrounds">
+  <div class="inner-content">
+    <div class="portfolio-page">
+      <div class="portfolio-box">
+        <%= render @subreddit.backgrounds %>
+      </div>
     </div>
   </div>
 </div>

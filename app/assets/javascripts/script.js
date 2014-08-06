@@ -24,13 +24,16 @@ $(document).ready(function($) {
 	var widescreenFilter = false;
 
 	try{
-		$lazyImgs.lazyload({
-			failure_limit: Math.max($lazyImgs.length - 1, 0),
-			threshold: 200,
-			skip_invisible: false
-		});
-		// $container.imagesLoaded( function(){
+
+		$container.imagesLoaded( function(){
 			$container.show();
+
+			$lazyImgs.lazyload({
+				failure_limit: Math.max($lazyImgs.length - 1, 0),
+				threshold: 200,
+				skip_invisible: false
+			});
+
 			$container.isotope({
 				filter:'*',
 				layoutMode:'masonry',
@@ -40,13 +43,10 @@ $(document).ready(function($) {
 				}
 			});
 
-			$container.isotope('on', 'layoutComplete', function($items, instance){
-				console.log($items.length);
-				winDow.trigger('scroll');
-				$container.trigger('scroll');
-			})
-		// });
+			winDow.trigger('scroll');
+		});
 	} catch(err) {
+		console.log(err);
 	}
 
 
@@ -163,9 +163,9 @@ $(document).ready(function($) {
 		var mainDiv = $('#container'),
 			preloader = $('.preloader');
 
-			preloader.fadeOut(400, function(){
-				mainDiv.delay(400).addClass('active');
-				body.delay(400).css('background', '#b4b7b8');
+			preloader.fadeOut(200, function(){
+				mainDiv.delay(200).addClass('active');
+				body.delay(200).css('background', '#b4b7b8');
 			});
 	});
 

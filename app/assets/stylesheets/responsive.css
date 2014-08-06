@@ -100,7 +100,6 @@
 	    text-align: center;
 	    width: 100%;
 	    max-width: 100%;
-	    height: auto !important;
 	}
 
 	.logo-box p.slogan {
@@ -132,9 +131,6 @@
 		overflow-y: scroll;
 	}
 
-	.filter-box {
-		display: none;
-	}
 
 	p.copyright {
 		display: none;

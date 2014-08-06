@@ -2,13 +2,14 @@
   <img alt="" class="lazy" data-original="<%= background.image.url(:medium) %>" />
   <div class="hover-box">
     <div class="project-title">
-      <h2><a target="_blank" href="http://www.reddit.com<%= background.permalink %>"><%= background.title.truncate(50) %></a></h2>
+      <h2 title="<%= background.title %>"><%= background.title.truncate(50) %></h2>
       <span><%= background.width %>x<%=background.height %></span>
       <span><%= number_to_human_size(background.image_file_size) %></span>
       <span><i class="glyphicon glyphicon-arrow-up"></i><%= background.score %></span>
       <div class="links">
         <a href="<%= background.image.url %>" class="backgroundPopup" title="<%= background.title %>"><i class="fa fa-search"></i></a>
-        <a href="<%= background.image.url %>" download="<%= background.reddit_id %>.<%= background.file_extension %>"><i class="fa fa-download"></i></a>
+        <a href="<%= background.image.url %>" download="<%= background.reddit_id %>.<%= background.file_extension %>" title="Download the full-size image"><i class="fa fa-download"></i></a>
+        <a target="_blank" href="http://www.reddit.com<%= background.permalink %>" title="Visit this post on reddit"><i class="fa fa-reddit"></i></a>
       </div>
     </div>
   </div>
