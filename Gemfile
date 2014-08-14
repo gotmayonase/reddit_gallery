@@ -14,6 +14,13 @@ gem 'httparty'
 gem 'paperclip'
 gem 'mysql'
 gem 'rubyzip', require: 'zip'
+gem 'capistrano'
+gem 'rvm-capistrano'
+
+group :production do
+  gem 'unicorn'
+  gem 'unicorn-worker-killer'
+end
 
 
 # Use ActiveModel has_secure_password
