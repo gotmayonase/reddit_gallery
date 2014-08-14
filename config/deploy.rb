@@ -1,10 +1,8 @@
 require "bundler/capistrano"
 require "rvm/capistrano"
-# config valid only for Capistrano 3.1
-lock '3.2.1'
 
 set :application, "rails_app"
-set :repo_url,  "git@github.com:gotmayonase/reddit_gallery.git"
+set :repository,  "git@github.com:gotmayonase/reddit_gallery.git"
 
 server "107.170.139.194", :web, :app, :db, primary: true
 
