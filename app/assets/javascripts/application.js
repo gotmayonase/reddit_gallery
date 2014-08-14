@@ -16,7 +16,6 @@
 //= require bootstrap.js
 //= require jquery.imagesloaded.min.js
 //= require isotope.pkgd.js
-//= require retina.js
 //= require jquery.nicescroll.min.js
 //= require jquery.lazyload.js
 //= require script.js

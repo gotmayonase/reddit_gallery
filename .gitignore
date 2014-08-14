@@ -17,3 +17,5 @@
 public/system
 .DS_Store
 public/r/*.zip
+public/r/*.html
+public/index.html

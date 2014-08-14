@@ -14,6 +14,8 @@ class SubredditImporter
   def self.import(subreddit)
     importer = self.new(subreddit)
     importer.import
+    ActionController::Base::expire_page('/')
+    ActionController::Base::expire_page("/r/#{subreddit.to_param}")
   end
 
   def import

@@ -16,6 +16,7 @@ gem 'mysql'
 gem 'rubyzip', require: 'zip'
 gem 'capistrano', '~> 2.15.0'
 gem 'rvm-capistrano'
+gem 'actionpack-page_caching'
 
 group :production do
   gem 'unicorn'

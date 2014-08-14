@@ -1,7 +1,7 @@
 class SubredditsController < ApplicationController
-
+  caches_page  :index, :show
   def index
-    @subreddits = Subreddit.all.order('name asc').includes(:backgrounds)
+    @subreddits = Subreddit.joins(:backgrounds).order('name asc').includes(:backgrounds)
   end
 
   def show
