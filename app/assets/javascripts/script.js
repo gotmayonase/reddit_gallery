@@ -52,6 +52,12 @@ $(document).ready(function($) {
 
 
 	var filterImages = function() {
+		$container.isotope('on', 'layoutComplete', function(){
+			winDow.trigger('scroll');
+			$container.trigger('scroll');
+			console.log('here');
+		});
+
 		$container.isotope({
 			filter	: function(){
 				var width = parseInt($(this).attr('data-width'));
