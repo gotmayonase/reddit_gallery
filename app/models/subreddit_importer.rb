@@ -33,6 +33,7 @@ class SubredditImporter
     links = response.parsed_response["data"]["children"]
 
     links.each do |link|
+      next if link['over_18']
       data = link["data"]
       title = data["title"]
       regex = /[\[\(](\d{3,5})\s?x\s?(\d{3,5})[\]\)]/
