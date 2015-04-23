@@ -1,7 +1,7 @@
 <% background = subreddit.backgrounds.order(:score).first %>
 <% if background %>
 <div class="project-post <%= subreddit.name %>">
-  <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" width="200" />
+  <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" />
   <div class="subredditOverlay">
     <h2 class=""><%= subreddit.to_param.titleize %></h2>
   </div>

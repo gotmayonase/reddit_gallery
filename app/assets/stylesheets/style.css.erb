@@ -44,7 +44,7 @@
 /* =  Header
 /*-------------------------------------------------*/
 
-header {
+header.side {
     display: block;
     width: 300px;
     float: left;
@@ -56,6 +56,60 @@ header {
     -webkit-box-shadow: 0 0 50px #000;
     -moz-box-shadow: 0 0 50px #000;
     -o-box-shadow: 0 0 50px #000;
+}
+
+header.top {
+    display: block;
+    background: #242b2e;
+    z-index: 4;
+    position: relative;
+    box-shadow: 0 0 50px 0px #000;
+    -webkit-box-shadow: 0 0 50px 0px #000;
+    -moz-box-shadow: 0 0 50px 0px #000;
+    -o-box-shadow: 0 0 50px 0px #000;
+    color: white;
+    padding: 0px 20px;
+}
+
+footer {
+    display: block;
+    background: #242b2e;
+    z-index: 4;
+    color: white;
+    padding: 20px 20px;
+}
+
+footer h3 {
+  font-size: 18px;
+}
+
+footer h4 {
+  font-size: 16px;
+}
+
+footer h3,h4 {
+  width: 100%;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+}
+
+
+header.top h1,h2 {
+  font-family: 'Source Sans Pro'
+}
+
+header.top h1 {
+  float: left;
+  margin: 10px;
+  padding: 0;
+}
+
+header.top h2 {
+  float: right;
+  font-size: 20px;
+  margin: 20px;
+  padding: 0;
 }
 
 .logo-box {
@@ -72,7 +126,7 @@ a.logo {
 p.slogan {
     color: #fff;
     font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     font-style: italic;
     margin: 0;
@@ -90,7 +144,7 @@ a.elemadded {
     display: none;
     color: #fff;
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     text-transform: uppercase;
     padding: 20px;
     background: #ff5700;
@@ -118,7 +172,7 @@ ul.drop-down li a {
     padding: 18px 24px;
     color: #fff;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     text-decoration: none;
@@ -232,7 +286,7 @@ div.filter-box {
 div.filter-box h3 {
     color: #ff5700;
     font-size: 19px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin: 0 0 10px;
     line-height: 30px;
@@ -251,7 +305,7 @@ div.filter-box ul li a {
     display: inline-block;
     color: #6b7072;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 24px;
     text-shadow: 0 0 4px #22282b;
@@ -360,7 +414,7 @@ ul.social-icons li a.github i {
 p.copyright {
     color: #6b7072;
     font-size: 12px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin-top: 18px;
     line-height: 20px;
@@ -514,7 +568,7 @@ ul li {
     color: #fff;
     font-size: 16px;
     line-height: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin-bottom: 18px;
 }
@@ -535,7 +589,7 @@ ul li {
 
 #content {
     position: relative;
-    height: 100%;
+    /*height: 100%;*/
 }
 
 .project-post {
@@ -588,7 +642,7 @@ ul li {
 .project-title h2 {
     color: #fff;
     font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 30px;
     margin: 0;
@@ -602,7 +656,7 @@ ul li {
     display: inline-block;
     color: #fff;
     font-size: 12px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     padding-bottom: 12px;
     border-bottom: 1px solid #fff;
@@ -683,7 +737,7 @@ ul li {
 .post-content h2 {
     color: #000;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 26px;
     margin: 0 0 4px;
@@ -696,7 +750,7 @@ ul li {
 .post-content p {
     color: #9c9c9c;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 22px;
     margin: 0;
@@ -722,7 +776,7 @@ ul li {
     display: inline-block;
     color: #9a9a9a;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     text-decoration: none;
     line-height: 22px;
@@ -752,7 +806,7 @@ ul li {
     color: #fff;
     font-size: 14px;
     line-height: 26px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 700;
     font-style: italic;
     margin: 0;
@@ -798,7 +852,7 @@ ul li {
 .quote-post span {
     color: #ff5700;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin: 0;
 }
@@ -834,7 +888,7 @@ ul li {
     text-align: center;
     text-decoration: none;
     line-height: 61px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 18px;
     color: #fff;
     font-weight: 300;
@@ -869,7 +923,7 @@ ul li {
     background: #ff5700;
     color: #fff !important;
     font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     text-transform: uppercase;
     text-align: center;
@@ -917,7 +971,7 @@ ul li {
 .sidebar h1 {
     color: #000;
     font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin: 0 0 7px;
     line-height: 30px;
@@ -927,7 +981,7 @@ ul li {
 .about-section p {
     color: #a3a3a3;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin: 0 0 25px;
     line-height: 30px;
@@ -987,7 +1041,7 @@ ul li {
     display: inline-block;
     color: #848484;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 32px;
 }
@@ -1030,7 +1084,7 @@ ul li {
 .project-feature ul li {
     color: #848484;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 32px;
 }
@@ -1059,7 +1113,7 @@ ul li {
     display: inline-block;
     color: #a3a3a3;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     padding: 9px 17px;
     border-radius: 10px;
@@ -1083,7 +1137,7 @@ ul li {
     display: inline-block;
     color: #848484;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     text-decoration: none;
     line-height: 28px;
@@ -1141,7 +1195,7 @@ ul.depth li:before {
 .comment-content h6 {
     color: #3c3c3c;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
     line-height: 22px;
     border-bottom: 1px solid #e5e5e5;
@@ -1188,7 +1242,7 @@ ul.depth li:before {
 .about-section h1 {
     color: #000;
     font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     margin: 0 0 5px;
     line-height: 30px;
@@ -1262,7 +1316,7 @@ ul.depth li:before {
 .team-post h3 {
     color: #fff;
     font-size: 16px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     line-height: 16px;
     text-transform: uppercase;
     margin: 0;
@@ -1271,7 +1325,7 @@ ul.depth li:before {
 .team-post span {
     color: #fff;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 16px;
     margin: 0;
@@ -1284,7 +1338,7 @@ ul.depth li:before {
 .skills-progress p {
     color: #000000;
     font-size: 13px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 26px;
     clear: both;
@@ -1325,7 +1379,7 @@ ul.depth li:before {
 .client-test h3 {
     color: #fff;
     font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-style: italic;
     padding: 27px 25px;
     margin: 0;
@@ -1337,7 +1391,7 @@ ul.depth li:before {
 .testimonial p {
     color: #a3a3a3;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 30px;
     margin: 0;
@@ -1361,7 +1415,7 @@ ul.depth li:before {
     display: inline-block;
     color: #848484;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 28px;
     text-decoration: none;
@@ -1426,7 +1480,7 @@ ul.depth li:before {
 .contact-box h1 {
     color: #000000;
     font-size: 24px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 26px;
     margin: 0 0 10px;
@@ -1440,7 +1494,7 @@ ul.depth li:before {
 .contact-info p {
     color: #a3a3a3;
     font-size: 18px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     line-height: 30px;
     margin: 0 0 20px;
@@ -1507,7 +1561,7 @@ ul.depth li:before {
 .comment-form textarea {
     color: #848484;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     border: 1px solid #eaeaea;
     border-left: none;
     font-weight: 300;
@@ -1544,7 +1598,7 @@ ul.depth li:before {
     text-align: center;
     color: #fff;
     font-size: 14px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-weight: 300;
     padding: 19px;
     background: #ff5700;

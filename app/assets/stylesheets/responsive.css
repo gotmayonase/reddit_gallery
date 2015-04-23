@@ -35,7 +35,7 @@
 }
 
 @media (max-width: 1199px) {
-	header {
+	header.side {
 		max-width: 250px;
 	}
 
@@ -95,7 +95,7 @@
 }
 
 @media (max-width: 767px) {
-	header {
+	header.side {
 	    float: none;
 	    text-align: center;
 	    width: 100%;

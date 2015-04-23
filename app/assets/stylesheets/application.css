@@ -32,7 +32,7 @@
 .subreddits .subredditOverlay h2 {
   color: #fff;
   font-size: 48px;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 300;
   line-height: 50px;
   margin: 0;
@@ -64,7 +64,7 @@
   z-index: 3;
 }
 
-header .info-box {
+header.side .info-box {
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -72,26 +72,26 @@ header .info-box {
   height: auto;
 }
 
-header .info-box a.info-toggle {
+header.side .info-box a.info-toggle {
   width: 100px;
   height: 120px;
 }
 
-header .info-box a.info-toggle i {
+header.side .info-box a.info-toggle i {
   width: 70px;
   height: 70px;
   line-height: 70px;
   font-size: 24px;
 }
 
-header .info-box a.info-toggle span {
+header.side .info-box a.info-toggle span {
   font-size: 14px;
   font-weight: normal;
   margin-top: 5px;
   display: block;
 }
 
-header {
+header.side {
   top: 0;
   left: 0;
 }
@@ -156,7 +156,7 @@ header {
   background: rgba(255, 87, 0, 0.9);
 }
 
-header h2, header h1 {
+header.side h2, header.side h1 {
   text-align: center;
   color: #cee3f8;
 }
@@ -182,7 +182,7 @@ div.filter-box h3 i {
 }
 
 @media (min-width: 1024px) {
-  header {
+  header.side {
     width: 100px;
     position: fixed;
     height: 100%;
@@ -200,7 +200,7 @@ div.filter-box h3 i {
     line-height: 14px;
   }
 
-  header .info-box {
+  header.side .info-box {
     display: none;
   }
 
