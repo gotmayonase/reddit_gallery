@@ -1,4 +1,4 @@
-<% background = subreddit.backgrounds.first %>
+<% background = subreddit.backgrounds.order(:score).first %>
 <% if background %>
 <div class="project-post <%= subreddit.name %>">
   <img class="lazy" alt="" data-original="<%= background.image.url(:medium) %>" width="200" />
